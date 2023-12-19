@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoMavenApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(DemoMavenApplication.class, args);
+		System.out.println("Added new log message");
 	}
 
 }
