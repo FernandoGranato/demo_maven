@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mongo:
+    container_name: demo-maven-mongo
+    image: mongo
+    env_file: ./docker/config/mongo/mongodb.env
+    ports:
+      - "28017:27017"
+    networks:
+      - demo-net
+    healthcheck:
+      test: echo "db.stats().ok" | mongo --quiet
+      interval: 10s
+
+  mongo-express:
+    container_name: demo-maven-mongo-express
+    image: mongo-express
+    env_file: ./docker/config/mongo/mongo-express.env
+    ports:
+      - "8090:8081"
+    networks:
+      - demo-net
+    depends_on:
+      - mongo
+
+networks:
+  demo-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.20.0.0/16
+          gateway: 10.20.0.1
