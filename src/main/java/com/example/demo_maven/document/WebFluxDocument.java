@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class WebFluxDocument {
 
     @Id
-    private String documentId;
+    private String id;
     private String body;
 
 }

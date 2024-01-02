@@ -15,6 +15,7 @@ public class WebFluxController {
 
     @Autowired
     private WebFluxService webFluxService;
+
     @PostMapping("/save")
     public Mono<ResponseEntity<Void>> postMonoResult() {
         return webFluxService.saveNewWebFluxDocument("Result from Mono").thenReturn( ResponseEntity.ok().build());
