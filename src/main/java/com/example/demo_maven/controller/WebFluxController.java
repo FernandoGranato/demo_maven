@@ -18,6 +18,7 @@ public class WebFluxController {
 
     @PostMapping("/save")
     public Mono<ResponseEntity<Void>> postMonoResult() {
+        System.out.println("Hello word!");
         return webFluxService.saveNewWebFluxDocument("Result from Mono").thenReturn( ResponseEntity.ok().build());
     }
 
